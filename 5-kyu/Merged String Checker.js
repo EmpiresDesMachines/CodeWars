@@ -1,0 +1,31 @@
+/*
+At a job interview, you are challenged to write an algorithm to check if a given string, s, can be formed from two other strings, part1 and part2.
+
+The restriction is that the characters in part1 and part2 should be in the same order as in s.
+
+The interviewer gives you the following example and tells you to figure out the rest from the given test cases.
+
+For example:
+
+'codewars' is a merge from 'cdw' and 'oears':
+
+    s:  c o d e w a r s   = codewars
+part1:  c   d   w         = cdw
+part2:    o   e   a r s   = oears
+*/
+
+function isMerge(s, part1, part2) {
+  if (s === '' && part1 === '' && part2 === '') return true;
+
+  if (s !== '') {
+    if (s[0] === part1[0] && part1[0] === part2[0]) {
+      // we make two branches of an recursion and get OR of the answers
+      return (isMerge(s.slice(1), part1.slice(1), part2) || isMerge(s.slice(1), part1, part2.slice(1)));
+    } if (s[0] === part1[0]) {
+      return isMerge(s.slice(1), part1.slice(1), part2);
+    } if (s[0] === part2[0]) {
+      return isMerge(s.slice(1), part1, part2.slice(1));
+    }
+  }
+  return false;
+}
