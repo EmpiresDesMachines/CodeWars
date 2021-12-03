@@ -13,18 +13,4 @@ extend( {a: 1, b: 2}, {c: 3} , {d: 5} ) // should === {a: 1, b: 2, c: 3, d: 4}
 
 */
 
-const extend = function (...params) {
-  const obj = {};
-
-  for (let i = 0; i < params.length; i++) {
-    if (typeof params[i] === 'object') {
-      const object = params[i];
-
-      for (const [key, value] of Object.entries(object)) {
-        if (obj[key] === undefined) obj[key] = value;
-      }
-    }
-  }
-
-  return obj;
-};
+const extend = (...params) => [...params].reduce((acc, v) => (isObject(v) ? { ...v, ...acc } : acc), {});
