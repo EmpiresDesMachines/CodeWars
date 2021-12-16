@@ -16,9 +16,9 @@ Without using the above, output the string "Hello World!" to prove that there is
 var helloWorld = function () {
   const self = helloWorld.name;
 
-  return self.slice(false, true).toUpperCase() + 
-    self.slice(true, true+true+true+true+true) + 
-    String.fromCharCode(self.length+self.length+self.length+true+true) +
-    self.slice(true+true+true+true+true, true+true+true+true+true+true+true+true+true+true) +
-    String.fromCharCode(self.length+self.length+self.length+true+true+true);
-}
+  return self.slice(false, true).toUpperCase()
+    + self.slice(true, true + true + true + true + true)
+    + String.fromCharCode(self.length + self.length + self.length + true + true)
+    + self.slice(true + true + true + true + true)
+    + String.fromCharCode(self.length + self.length + self.length + true + true + true);
+};
