@@ -49,3 +49,11 @@ function piecesValue(arr, s) {
     .filter((v) => new RegExp(`${s[0]}-`).test(v))
     .reduce((acc, v) => acc + (vals[v.slice(2)] || 0), 0);
 }
+
+// v2
+function piecesValue(arr, s) {
+  return []
+    .concat(...arr)
+    .filter((v) => new RegExp(`${s[0]}-`).test(v))
+    .reduce((acc, v) => acc + (hash[v.slice(2)] || 0), 0);
+}
